@@ -9,7 +9,7 @@ const weather = document.querySelector('.weather');
 
 
 result.addEventListener("click", function(){
-    fetch(`http://api.weatherstack.com/current?access_key=78f7f79609b700854ad81e0ea2550662&query=${inputField.value}`)
+    fetch(`https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/current?access_key=78f7f79609b700854ad81e0ea2550662&query=${inputField.value}`)
     .then(res => 
         res.json()
         )
