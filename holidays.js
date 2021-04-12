@@ -5,24 +5,17 @@ const cityName = document.getElementById("cityName");
 const temperature = document.getElementById("temperature");
 const region = document.getElementById("region");
 const weather = document.querySelector('.weather');
-const apiKey = "78f7f79609b700854ad81e0ea2550662";
+
 
 
 result.addEventListener("click", function(){
-    fetch(`http://api.weatherstack.com/current?access_key=${apiKey}&query=${inputField.value}`)
+    fetch(`https://holidayapi.com/v1/holidays?pretty&key=5807a054-23a5-477a-869a-240b45e39b14&country=IN&year=2020`)
     .then(res => 
         res.json()
-        )
+        )      
     .then(data => {
-        var iconValue = data.current.weather_icons;
-        var nameValue = data.location.name;
-        var tempValue = data.current.temperature;
-        var rgnValue = data.location.region;
-        console.log(data.location.name);
-        icon.setAttribute("src",`${iconValue}`);
+        var nameValue = data.holidays[0].name;
         cityName.innerText = `${nameValue}`;
-        temperature.innerText = `${tempValue}°c`;
-        region.innerText = `${rgnValue}`;
         inputField.value = "";
     })
 
